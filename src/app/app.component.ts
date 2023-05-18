@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faPhone, faEnvelope, faLocation, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope, faLocation, faGlobe, faPrint } from '@fortawesome/free-solid-svg-icons';
 
 export interface Skill {
   name: string;
@@ -55,6 +55,7 @@ export class AppComponent {
   linkedin = "https://in.linkedin.com/in/soumenSarkar-uiDeveloper";
   github = "https://github.com/soumen-sarkar";
   website = "https://crystalui.in/";
+  resumeLink = "https://soumen-sarkar.github.io/resume/"
 
   skills: Skill[] = [
     {
@@ -107,6 +108,7 @@ export class AppComponent {
   faEnvelope = faEnvelope;
   faLocation = faLocation;
   faGlobe = faGlobe;
+  faPrint = faPrint;
 
   profileSummary = `A professional Front-end developer able to work on own initiative or as part of a team and can deal with development duties competently. Having 13+ years of experience in a fast paced environment meeting the
   goals and objectives through hard work.`;
@@ -271,5 +273,11 @@ export class AppComponent {
     }
   ];
 
- 
+  printResume() {
+    window.print();
+  }
+  
+  get isMyResume(): boolean {
+    return this.firstName === "soumen" && this.lastName === "sarkar" && this.phoneNumber.indexOf("8609599125") > -1;
+  }
 }

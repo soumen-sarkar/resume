@@ -13,6 +13,14 @@ a {
     text-decoration: none;
 }
 
+.printNone {
+    display: block;
+}
+
+.printOnly {
+    display: none;
+}
+
 .heading {    
     font-family: Geneva, Verdana, Tahoma, sans-serif;
 }
@@ -68,5 +76,30 @@ a {
             font-size: 1.25em;
             color: #1e90ff;
         }
+    }
+}
+
+.printButton {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    height: 3em;
+    width: 7em;
+    border-radius:1em;
+    -moz-border-radius:1em;
+    -webkit-border-radius:1em;
+}
+
+@media print {
+    .app-template-container {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0em !important;
+    }
+    .printOnly {
+        display: block;
+    }
+    .printNone {
+        display: none;
     }
 }
