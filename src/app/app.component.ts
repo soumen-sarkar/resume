@@ -110,8 +110,7 @@ export class AppComponent {
   faGlobe = faGlobe;
   faPrint = faPrint;
 
-  profileSummary = `A professional Front-end developer able to work on own initiative or as part of a team and can deal with development duties competently. Having 13+ years of experience in a fast paced environment meeting the
-  goals and objectives through hard work.`;
+  profileSummary = `A professional front-end developer who focuses on telling stories visually, through enjoyable and meaningful experiences. Having 13+ years of experience in a fast paced environment meeting the goals and objectives through hard work.`;
 
   get address(): string {
     return this.addressLine1 + ", " + this.addressLine2;
