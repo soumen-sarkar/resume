@@ -9,6 +9,10 @@ body {
     font-size: 0.90em;
 }
 
+p{
+    line-height: 1.3em;
+}
+
 a {
     text-decoration: none;
 }
@@ -22,11 +26,20 @@ strong {
 }
 
 .printOnly {
+    font-size: 0.85em;
     display: none;
+    color: lightgray;
+    border-top: 1px dashed lightgray;
+    border-bottom: 1px dashed lightgray;
 }
 
 .heading {    
     font-family: Geneva, Verdana, Tahoma, sans-serif;
+}
+.badge {
+    background-color: #0a0a79;
+    color: white;
+    font-size: 0.9em;
 }
 
 .boxShadow {
@@ -46,6 +59,8 @@ strong {
 }
 
 .borderLeft {
+    float: left;
+    display: block;
     border-left: 1px solid lightblue;
 }
 
@@ -95,10 +110,56 @@ strong {
 }
 
 @media print {
-    .app-template-container {
+    @page {
+        margin: 0;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 0.80em;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+    p {
+        margin-bottom: 0.5em;
+    }
+    .boxShadow {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .PrintFluid {
+        float: left;
+        display: block;
+        width: 100%;
+    }
+    .printTemplateContainer, .reset{
         width: 100%;
         max-width: 100%;
-        margin-top: 0em !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .printSidebar {
+        float: left;
+        width: 270px;
+    }
+    .printMainContent {
+        float: left;
+        width: 560px;
+    }
+    .print40 {
+        width: 40%;
+    }
+    .print50 {
+        width: 50%;
+    }
+    .print60 {
+        width: 60%;
+    }
+    .printFloatRight {
+        float: right;
+    }
+    .printFloatLeft {
+        float: left;
     }
     .printOnly {
         display: block;

@@ -37,6 +37,7 @@ export interface Experience {
   projects: Project[];
 }
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -79,6 +80,17 @@ export class AppComponent {
       percent: 65
     }
   ];
+
+  secondarySkills = [
+    "jQuery",
+    "ajax",
+    "json",
+    "SCSS",
+    "Bootstrap",
+    "Figma",
+    "Photoshop",
+    "Git",
+  ]
 
   courses: Education[] = [
     {
@@ -144,7 +156,7 @@ export class AppComponent {
             },
             {
               projectName: "TABS-net",
-              projectDescriotion: ""
+              projectDescriotion: "An text management app for all over Credit Suisse."
             }
           ],
           roles: [
@@ -232,7 +244,7 @@ export class AppComponent {
           clientDescription: "A closed joint stock company licensed by the Saudi Central Bank (SAMA) to work in financial leasing, productive assets financing, consumer products financing, and real estate financing.",
           projectsDetails: [
             {
-              projectName: "TDG Marketing",
+              projectName: "Abdul Latif Jamal Finace",
               projectDescriotion: "Applying for different financing products and enabling our representatives to contact and assist you. Finalize the financing processes for the products that can be financed entirely online. Complete the online aftersales services without the need to visit our branches. View your standing financing applications details."
             }
           ],
