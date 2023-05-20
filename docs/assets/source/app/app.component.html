@@ -1,0 +1,174 @@
+<div class="container printTemplateContainer">
+  <div class="row boxShadow m-3 p-3 printTemplateContainer">
+    <div class="col-sm-12 text-center headerGredient py-3">
+      <h2 class="mb-3">
+        {{ firstName | uppercase }} {{ lastName | uppercase }}
+      </h2>
+      <h6 class="thinFont">
+        {{ jobTitle }} &nbsp; | &nbsp; {{ currentCompany }}
+      </h6>
+    </div>
+    <div class="col-sm-4 sideBarGredient printSidebar p-3">
+      <div class="mb-3">
+        <h5 class="heading mb-2">Skills</h5>
+        <div class="mb-1 row" *ngFor="let skill of skills">
+          <div class="col-12">
+            <label class="mb-0">
+              <strong>{{ skill.name }}</strong>
+            </label>
+          </div>
+          <div class="col-12 mb-2">
+            <ngb-progressbar
+              [value]="skill.percent"
+              height=".5rem"
+            ></ngb-progressbar>
+          </div>
+        </div>
+        <div class="w-100">          
+          <span class="badge rounded-pill me-1 mb-1" *ngFor="let skills of secondarySkills">{{skills}}</span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <h5 class="heading mb-2">Education</h5>
+        <ul class="ulStyle">
+          <li class="row mb-2" *ngFor="let course of courses">
+            <div class="col-8">
+              <p class="mb-0">
+                <strong>{{
+                  course.name + " (" + course.major_board + ")"
+                }}</strong>
+              </p>
+              <small>{{ course.collegeName }}</small>
+            </div>
+            <div class="col-4 text-end">
+              <strong>{{ getCourseDuration(course) }}</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-3">
+        <h5 class="heading mb-2">Contact</h5>
+        <ul class="ulStyle">
+          <li>
+            <span><fa-icon [icon]="faPhone"></fa-icon></span>
+            <a href="tel:{{ phoneNumber }}">{{ phoneNumber }}</a>
+          </li>
+          <li>
+            <span><fa-icon [icon]="faEnvelope"></fa-icon></span>
+            <a href="mailto:{{ email }}">{{ email }}</a>
+          </li>
+          <li>
+            <span><fa-icon [icon]="faLocation"></fa-icon></span>
+            <p>{{ address }}</p>
+          </li>
+          <li>
+            <span class="svgImg"><img src="assets/img/github.svg" /></span>
+            <a href="{{ github }}" target="_blank">{{ github }}</a>
+          </li>
+          <li>
+            <span><img class="animal_img" src="assets/img/linkedin.svg" /></span>
+            <a href="{{ linkedin }}" target="_blank">{{ linkedin }}</a>
+          </li>
+          <li>
+            <span><fa-icon [icon]="faGlobe"></fa-icon></span>
+            <a href="{{ website }}" target="_blank">{{ website }}</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="mb-3">
+        <h5 class="heading mb-2">Recognisation</h5>
+        <ul class="ulStyle">
+          <li class="row mb-3" *ngFor="let recognisation of recognisations">
+            <div class="col-9">
+              <p class="mb-0">
+                <strong>{{ recognisation.name }}</strong>
+              </p>
+              <small><strong>Issued By -</strong> {{ recognisation.issuedBy }}</small>
+            </div>
+            <div class="col-3 text-end">
+              <strong>{{ recognisation.issuedYear }}</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-8 p-3 printMainContent">
+      <h5 class="heading mb-3">Summary</h5>
+      <p>{{ profileSummary }}</p>
+
+      <h5 class="heading mb-3">Professional experience</h5>
+      <div class="mb-1 w-100 borderLeft" *ngFor="let experience of experiences">
+        <div class="row py-2 sideBarGredient PrintFluid">
+          <div class="col-12">
+            <p class="mb-0">
+              <strong
+                >{{ experience.companyName }} |
+                {{ experience.companyAddress }}</strong
+              >
+            </p>
+          </div>
+          <div class="col-sm-7 print40 printFloatLeft">
+            <small>{{ experience.jobTitle }}</small>
+          </div>
+          <div class="col-sm-5 text-end print60 printFloatRight">
+            <small><strong>{{ experience.beginDate + " - " + experience.endDate }}</strong></small>
+          </div>
+        </div>
+        <div class="row ps-4 pt-3 PrintFluid">
+          <p>{{ experience.companyDescription }}</p>
+          <ul>
+            <li class="mb-3" *ngFor="let project of experience.projects">
+              <p>
+                <strong
+                  >Client :
+                  <small
+                    >(<u>{{ project.clientName }}</u
+                    >)</small
+                  ></strong
+                >
+                -
+                <small>{{ project.clientDescription }}</small>
+              </p>
+              <p class="m-0"><strong>Projects : </strong></p>
+              <div class="ps-3">
+                <ul>
+                  <li
+                    class="mb-2"
+                    *ngFor="let details of project.projectsDetails"
+                  >
+                    <small
+                      ><strong>{{ details.projectName }}</strong></small
+                    >
+                    - <small>{{ details.projectDescriotion }}</small>
+                  </li>
+                </ul>
+                <p class="m-0"><strong>Roles : </strong></p>
+                <ul>
+                  <li *ngFor="let role of project.roles">
+                    <small>{{ role }}</small>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isMyResume" class="PrintFluid text-center printOnly mx-3 my-1 p-3">
+      &lt;PS: This resume is created using HTML & CSS and deployed as an Angular app on GitHub Pages. Please visit my
+      github page: <a [href]="resumeLink">{{ resumeLink }}</a> to view this online. /&gt;
+  </div>
+
+  </div>
+</div>
+
+<button class="printNone printButton shadow border-warning"
+            (click)="printResume()"> 
+            <fa-icon [icon]="faPrint"></fa-icon>
+            Print</button>
