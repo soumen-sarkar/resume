@@ -88,7 +88,7 @@ export class AppComponent {
   ];
 
   secondarySkills = [
-    "jQuery",
+    "TypeScript",
     "ajax",
     "json",
     "SCSS",
@@ -170,7 +170,7 @@ export class AppComponent {
             },
             {
               projectName: "TABS-net",
-              projectDescriotion: "An text management app for all over Credit Suisse."
+              projectDescriotion: "An unified platform to view and maintain RFT and p50 table content. It provides the overall governance and monitoring of maintanance for TABS reference data."
             }
           ],
           roles: [
